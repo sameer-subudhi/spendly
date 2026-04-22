@@ -203,3 +203,68 @@
     .mock-stats-grid { grid-template-columns: 1fr; }
     .hero { padding: 3rem 1rem 2rem; }
 }
+
+/* ------------------------------------------------------------------ */
+/* Video modal                                                         */
+/* ------------------------------------------------------------------ */
+
+.vmodal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.vmodal[aria-hidden="false"] {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.vmodal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.vmodal-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(860px, 92vw);
+    background: var(--ink);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.vmodal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.875rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+    transition: color 0.15s;
+}
+
+.vmodal-close:hover { color: #fff; }
+
+.vmodal-video {
+    aspect-ratio: 16 / 9;
+}
+
+.vmodal-video iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
